@@ -40,6 +40,41 @@ npm run build
 
 The built files will be in the `dist` directory.
 
+## Publishing to GitHub Pages
+
+This repository is configured to publish the `dist/` folder to the `gh-pages` branch automatically via GitHub Actions on every push to `main`.
+
+- Push to `main` to trigger CI deploy:
+
+```bash
+git add -A
+git commit -m "Prepare site for GitHub Pages"
+git push origin main
+```
+
+- Expected site URL (replace `OWNER` with the repository owner if different):
+
+```
+https://sumanstiss.github.io/demo.cmsr.com/
+```
+
+### Local deploy (optional)
+
+You can build and publish locally using `gh-pages`:
+
+```bash
+npm run predeploy
+npm run deploy
+```
+
+### Image optimization
+
+An image optimization script is included. CI runs it before the build to compress images found in `public/`.
+
+```bash
+npm run optimize:images
+```
+
 ### Preview Production Build
 
 ```bash
